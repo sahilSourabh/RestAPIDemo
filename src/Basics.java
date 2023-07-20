@@ -12,7 +12,7 @@ public class Basics {
 
 	public static void main(String[] args) {
 		
-		// validate if Add Place API is working as expected 
+		//validate if Add Place API is working as expected 
 		//Add place-> Update Place with New Address -> Get Place to validate if New address is present in response
 		
 		//given - all input details 
@@ -30,7 +30,7 @@ public class Basics {
 		
 		System.out.println("Response:"+"\n"+response); //Extracting response body to a string
 		
-		JsonPath js =  new JsonPath(response); //Parsing the JSON
+		JsonPath js =  new JsonPath(response);         //Parsing the JSON
 		String placeId = js.getString("place_id");
 		System.out.println("place_id: "+placeId);
 		
