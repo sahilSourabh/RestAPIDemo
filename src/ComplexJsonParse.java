@@ -55,6 +55,7 @@ public class ComplexJsonParse {
 			int prices = js.getInt("courses["+i+"].price");
 			int copies = js.getInt("courses["+i+"].copies");
 			int total = prices*copies;
+			
 			sum = sum + total;
 			
 		}
