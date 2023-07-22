@@ -11,7 +11,8 @@ import io.restassured.path.json.JsonPath;
 public class StaticJson {
 
 	public static void main(String[] args) throws IOException {
-		// Import the request body from a JSON file
+		
+		//Import the request body from a JSON file
 		//Convert content into Byte -> Byte data to String
 		
 		RestAssured.baseURI = "https://rahulshettyacademy.com";
