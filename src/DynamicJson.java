@@ -11,7 +11,7 @@ public class DynamicJson {
 	@Test(dataProvider="getData")
 	public void addBook(String isbn, String aisle) {
 		
-		//Dynamically build jsonPayload with external data inputs
+		//Dynamically build JsonPayload with external data inputs
 		//Parametrize API tests with multiple data inputs
 		
 		RestAssured.baseURI = "http://216.10.245.166";

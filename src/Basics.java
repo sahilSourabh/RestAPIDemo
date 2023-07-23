@@ -37,11 +37,8 @@ public class Basics {
 		//UPDATE PLACE
 		String newAddress = "70 Summer walk, USA";
 		given().log().all().queryParam("key", "qaclick123").header("Content-Type", "application/json")
-		.body("{\r\n"
-				+ "    \"place_id\": \""+placeId+"\",\r\n"
-				+ "    \"address\": \""+newAddress+"\",\r\n"
-				+ "    \"key\": \"qaclick123\"\r\n"
-				+ "}").when().put("maps/api/place/update/json")
+		.body(Payload.UpdatePlace(placeId, newAddress))
+		.when().put("maps/api/place/update/json")
 		.then().log().all().assertThat().statusCode(200).body("msg", equalTo("Address successfully updated"));
 		
 		//GET PLACE
