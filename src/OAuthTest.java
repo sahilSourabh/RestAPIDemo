@@ -10,7 +10,7 @@ public class OAuthTest {
 		//Get access token
 		//Get the results using the access token
 		
-		String code = "4%2F0AZEOvhUwLC20I2g_5xRkOWGwlpD0IMkYsOyYTX9MUpp4XAB7egXYux6-pvUVf9pniFmyqA";
+		String code = "4%2F0AZEOvhUHgFR6vB9kWl6MnfCFRm9Q20WMOKgXaxvTiis9B0jUYjgsC1HSaJ0tB0zkz9zVpw";
 		
 		//RestAssured.baseURI = "https://www.googleapis.com/oauth2/v4/token";
 		
@@ -32,7 +32,6 @@ public class OAuthTest {
 		String results = given().urlEncodingEnabled(false)
 		.queryParam("access_token", accessToken)
 		.when().log().all().get("https://rahulshettyacademy.com/getCourse.php")
-		.then().log().all().extract().response()
 		.asString();
 		
 		System.out.println(results);
