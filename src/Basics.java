@@ -43,7 +43,7 @@ public class Basics {
 		//GET PLACE
 		
 		String getResponse = given().log().all().queryParam("key", "qaclick123").queryParam("place_id", placeId)
-		.when().get("maps/api/place/get/json")
+		.when().get("https://rahulshettyacademy.com/maps/api/place/get/json")
 		.then().log().all().assertThat().statusCode(200).extract().response().asString();
 		
 		JsonPath js1 = new JsonPath(getResponse);
