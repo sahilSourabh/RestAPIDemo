@@ -1,5 +1,6 @@
 import static io.restassured.RestAssured.given;
 
+import io.restassured.parsing.Parser;
 import io.restassured.path.json.JsonPath;
 import pojo.GetCourse;
 
@@ -11,7 +12,7 @@ public class OAuthTest {
 		//Get access token
 		//Get the results using the access token
 		
-		String code = "4%2F0Adeu5BVLWNe-kQySVQpqwwynBmsZOme__jlzL1Ik1xyBsl0gXrGGJc-ymS3kqE5vG6GXtQ";
+		String code = "4%2F0Adeu5BVARLe3sbDloinJ1zfKPEJX4zLajjyo8_taYZPw3w5AMRztnq1-WXWqw_LMWbewhQ";
 		
 		//RestAssured.baseURI = "https://www.googleapis.com/oauth2/v4/token";
 		
@@ -30,13 +31,16 @@ public class OAuthTest {
 		JsonPath js = new JsonPath(response);
 		String accessToken = js.getString("access_token");
 		
-		GetCourse results = given().urlEncodingEnabled(false)
-		.queryParam("access_token", accessToken)
-		.when().log().all().get("https://rahulshettyacademy.com/getCourse.php")
+		//Serialization
+		GetCourse results = given().queryParam("access_token", accessToken).expect().defaultParser(Parser.JSON)
+		.when().get("https://rahulshettyacademy.com/getCourse.php")
 		.as(GetCourse.class);
 //		.asString();
 		
-		System.out.println(results);
+		System.out.println(results.getInstructor());
+		System.out.println(results.getLinkedIn());
+		System.out.println(results.getCourses().getWebAutomation().get(1).getCourseTitle());
+		System.out.println(results.getCourses().getWebAutomation().get(1).getPrice());
 		
 		
 		
