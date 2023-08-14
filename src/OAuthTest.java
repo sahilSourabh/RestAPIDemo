@@ -31,7 +31,7 @@ public class OAuthTest {
 		JsonPath js = new JsonPath(response);
 		String accessToken = js.getString("access_token");
 		
-		//Serialization
+		
 		GetCourse results = given().queryParam("access_token", accessToken).expect().defaultParser(Parser.JSON)
 		.when().get("https://rahulshettyacademy.com/getCourse.php")
 		.as(GetCourse.class);
