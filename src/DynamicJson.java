@@ -34,7 +34,7 @@ public class DynamicJson {
 	@DataProvider
 	public Object[][] getData() {
 		
-		return new Object [][] { {"bcd","2270"},{"bcd","2271"},{"bcd","2276"},{"bcd","2277"}};
+		return new Object [][] { {"bcd","2270"},{"bcd","2271"},{"bcd","2277"},{"bcd","2276"}};
 	}
 
 }
