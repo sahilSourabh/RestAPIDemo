@@ -17,14 +17,13 @@ public class SerializeTest {
 		add.setAccuracy(50);
 		add.setAddress("29, side layout, cohen 09");
 		add.setLanguage("English");
+		add.setName("Frontline house");
+		add.setPhone_number("(+91) 983 893 3937");
 		
 		Location location = new Location();
 		location.setLat(-38.383494);
 		location.setLng(34.383494);
 		add.setLocation(location);
-		
-		add.setName("Frontline house");
-		add.setPhone_number("(+91) 983 893 3937");
 		
 		ArrayList<String> types = new ArrayList<>();
 		types.add("shoe park");
@@ -33,12 +32,12 @@ public class SerializeTest {
 		
 		add.setWebsite("http://google.com");
 		
-		Response res = given().log().all().queryParam("key", "qaclick123").body(add)
+		Response res = given().log().all().queryParam("key", "qaclick123").body(add)  //java object is converted into json
 		.when().post("/maps/api/place/add/json")
-		.then().log().all().statusCode(200).extract().response();
+		.then().statusCode(200).extract().response();
 		
 		String response = res.asString();
-		System.out.println("Reponse: "+response);
+		System.out.println("Reponse: "+"\n"+response);
 		
 		
 	}
