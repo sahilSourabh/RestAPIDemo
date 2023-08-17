@@ -9,7 +9,7 @@ public class EcommerceAPITest {
 
 	public static void main(String[] args) {
 		
-		RequestSpecification req = new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com/api/ecom/auth/login")
+		RequestSpecification req = new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com")
 				.setContentType(ContentType.JSON).build();
 		
 		LoginRequest login = new LoginRequest();
